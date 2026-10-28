@@ -50,8 +50,6 @@ The browser version in `docs/` comes from the included Web export preset. Thread
 - [ ] A defender that contests shots
 - [ ] Touch controls for phones
 
-## Credits
+## License
 
-I built the first prototype with help from Claude as an AI pair programmer. The commit history shows what was added when.
-
-MIT License
+MIT
