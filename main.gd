@@ -309,7 +309,11 @@ func _draw() -> void:
 		var a: float = clamp(p["t"] / 1.2, 0.0, 1.0)
 		var c: Color = p["color"]
 		c.a = a
-		draw_string(font, p["pos"], p["text"], HORIZONTAL_ALIGNMENT_LEFT, -1, 30, c)
+		# Keep popup text fully on screen even near the hoop on the right edge.
+		var w: float = font.get_string_size(p["text"], HORIZONTAL_ALIGNMENT_LEFT, -1, 30).x
+		var pos: Vector2 = p["pos"]
+		pos.x = clamp(pos.x, 20.0, W - w - 20.0)
+		draw_string(font, pos, p["text"], HORIZONTAL_ALIGNMENT_LEFT, -1, 30, c)
 	if state == State.MENU:
 		_draw_overlay("HOOP RUSH", [
 			"A / D or arrows to move",
